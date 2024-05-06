@@ -17,7 +17,6 @@ public class CommandHandler {
 
 	public static void handleCommand(MessageReceivedEvent event) {
 		String content = event.getMessage().getContentRaw();
-
 		if (isCommand(content, "help")) {
 			event.getChannel().sendMessage("Commands: [* = superuser only]\n```" + prefix + "snipeall*\n" + prefix + "snipe <optional channel> [index]\n" + prefix + "clearsnipe*\n" + prefix + "removesnipe* [index]```").queue();
 		} else if (isCommand(content, "snipeall")) {
