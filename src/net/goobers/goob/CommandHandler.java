@@ -29,7 +29,7 @@ public class CommandHandler {
 				GuildChannel channel = event.getGuildChannel();
 				if (parts.length > 1) {
 					if (parts[1].contains("<#")) {
-						if (!Auth.isSuperUser(event.getAuthor().getId())) {
+						if (!Auth.isSuperUser(event.getGuild().retrieveMemberById(event.getAuthor().getId()).complete())) {
 							event.getChannel().sendMessage("You are not authorized to use this snipe with channel argument.").queue();
 							return;
 						}

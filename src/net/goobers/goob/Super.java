@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Super {
 	public static void snipeAll(MessageReceivedEvent event) {
-		if (!Auth.isSuperUser(event.getAuthor().getId())) {
+		if (!Auth.isSuperUser(event.getGuild().retrieveMemberById(event.getAuthor().getId()).complete())) {
 			event.getChannel().sendMessage("You are not authorized to use this command.").queue();
 			return;
 		}
@@ -29,7 +29,7 @@ public class Super {
 	}
 
 	public static void clearSnipes(MessageReceivedEvent event) {
-		if (!Auth.isSuperUser(event.getAuthor().getId())) {
+		if (!Auth.isSuperUser(event.getGuild().retrieveMemberById(event.getAuthor().getId()).complete())) {
 			event.getChannel().sendMessage("You are not authorized to use this command.").queue();
 			return;
 		}
@@ -43,7 +43,7 @@ public class Super {
 	}
 
 	public static void removeSnipe(MessageReceivedEvent event) {
-		if (!Auth.isSuperUser(event.getAuthor().getId())) {
+		if (!Auth.isSuperUser(event.getGuild().retrieveMemberById(event.getAuthor().getId()).complete())) {
 			event.getChannel().sendMessage("You are not authorized to use this command.").queue();
 			return;
 		}
